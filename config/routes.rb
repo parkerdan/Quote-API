@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    root 'sessions#new'
   resources :sessions, only: [:new, :create]
   resources :quotes
-  resources :api, only: [:index]
+  resources :api, only: [:index,]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
