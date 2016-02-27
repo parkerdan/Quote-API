@@ -1,0 +1,9 @@
+<h1>All Quotes</h1>
+<% @quotes.each do |q| %>
+<div class="">
+  <h4><%= q.author %></h4>
+  <p>
+    <%= q.body %>
+  </p>
+</div>
+<% end  %>

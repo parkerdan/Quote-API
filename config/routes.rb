@@ -6,7 +6,8 @@ Rails.application.routes.draw do
    root 'sessions#new'
   resources :sessions, only: [:new, :create]
   resources :quotes
-  resources :api, only: [:index,]
+  post "/api/quote/pirate" => "api#convert_to_pirate_speak", as: :convert_to_pirate_speak
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

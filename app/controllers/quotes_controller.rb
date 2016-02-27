@@ -3,6 +3,10 @@ class QuotesController < ApplicationController
     @quote = Quote.new
   end
 
+  def index
+    @quotes = Quote.all
+  end
+
   def create
     @quote = Quote.new quote_params
     if @quote.save
