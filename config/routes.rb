@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'sessions#new'
-  resources :sessions, only: [:new, :create]
+   root 'quotes#index'
+   resources :sessions, only: [:new, :create] do
+       delete :destroy, on: :collection
+       end
   resources :quotes
   post "/api/quote/pirate" => "api#convert_to_pirate_speak", as: :convert_to_pirate_speak
 

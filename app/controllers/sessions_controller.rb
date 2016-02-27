@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_user_name params[:user_name]
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to new_quote_path
+      redirect_to quotes_path
       flash[:notice] = "Logged In 🤗"
     else
       flash[:alert] = "**** You shall not pass!!!! ****"
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, flash[:notice] = "Logged out!"
+    flash[:notice] = "Logged out!"
+    redirect_to root_path
   end
 
   private

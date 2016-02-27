@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fa fa-book"> Home</i>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav">
+        <li><p class="navbar-text">Hello <%= current_user.display_name %>!</p></li>
+        <% if current_user.admin  %>
+        <li><%= link_to "Create New User", new_quote_path %></li>
+        <li><%= link_to "Create New API Key", new_quote_path %></li>
+        <% end  %>
+        <li><%= link_to "Create Quote", new_quote_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+      </ul>
+
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign In", new_session_path %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
