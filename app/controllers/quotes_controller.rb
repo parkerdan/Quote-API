@@ -19,6 +19,8 @@ before_action :authenticate_user!
   def create
     @quote = Quote.new quote_params
     @quote.pirate_speak = TalkLikeAPirate.translate(@quote.body)
+    Yodaspeak.credentials("RRb2JvmFDDmshk5CcwfifvzeIBZUp1v3utLjsnnjyQL5G6C5Fz")
+    @quote.yoda_speak = Yodaspeak.speak(@quote.body).body
     if @quote.save
       flash[:notice] = "Saved"
       redirect_to quote_path(@quote)

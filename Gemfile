@@ -8,6 +8,7 @@ gem 'catpants', '~> 2.1.2'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'simple_form'
 gem 'talk_like_a_pirate', '~> 0.1.0'
+gem 'yodaspeak'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
