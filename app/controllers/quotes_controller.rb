@@ -18,6 +18,7 @@ before_action :authenticate_user!
 
   def create
     @quote = Quote.new quote_params
+    @quote.pirate_speak = TalkLikeAPirate.translate(@quote.body)
     if @quote.save
       flash[:notice] = "Saved"
       redirect_to quote_path(@quote)

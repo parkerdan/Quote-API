@@ -3,8 +3,14 @@
   <div class="col-sm-2">
     <h2>Author</h2>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-2">
     <h2>Quote</h2>
+  </div>
+  <div class="col-sm-3">
+    <h2>Pirate Speak</h2>
+  </div>
+  <div class="col-sm-3">
+    <h2>Yoda Speak</h2>
   </div>
   <div class="col-sm-2">
     <h2>Action</h2>
@@ -16,9 +22,20 @@
   <div class="col-sm-2">
     <h4><%= q.author %></h4>
   </div>
-  <div class="col-sm-8">
-    <h4><%= q.body %></h4>
+  <div class="col-sm-2">
+    <p><%= q.body %></p>
   </div>
+  <div class="col-sm-3">
+    <p><%= q.pirate_speak %></p>
+  </div>
+  <div class="col-sm-3">
+    <% if q.yoda_speak %>
+    <p><%= q.yoda_speak %></p>
+    <% else %>
+    <p>Convert to Yoda Speak happens in the background as a rake task.  Notify Parker if it doesn't show in 24 hours.</p>
+    <% end %>
+  </div>
+
   <% if q.user == current_user || current_user.admin  %>
   <div class="col-sm-1">
     <%= link_to "Edit", edit_quote_path(q), class: "btn btn-warning btn-xs" %>

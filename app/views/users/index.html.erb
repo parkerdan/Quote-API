@@ -26,12 +26,14 @@
   <div class="col-sm-2">
     <h4><%= q.quotes.count %></h4>
   </div>
+  <% unless q.id == 1 %>
   <div class="col-sm-1">
     <%= link_to "Edit", edit_user_path(q), class: "btn btn-warning btn-xs" %>
   </div>
   <div class="col-sm-1">
     <%= link_to "Delete", user_path(q), method: :delete, data: {confirm: "This is final, it WILL be erased..."}, class: "btn btn-danger btn-xs" %>
   </div>
+  <% end %>
 </div>
 <hr>
 <% end  %>
