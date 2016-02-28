@@ -1,4 +1,4 @@
-<h5>Showing all</h5>
+<h5>Showing all quotes</h5>
 <div class="row">
   <div class="col-sm-2">
     <h2>Author</h2>
@@ -19,12 +19,14 @@
   <div class="col-sm-8">
     <h4><%= q.body %></h4>
   </div>
+  <% if q.user == current_user || current_user.admin  %>
   <div class="col-sm-1">
     <%= link_to "Edit", edit_quote_path(q), class: "btn btn-warning btn-xs" %>
   </div>
   <div class="col-sm-1">
     <%= link_to "Delete", quote_path(q), method: :delete, data: {confirm: "This is final, it WILL be erased..."}, class: "btn btn-danger btn-xs" %>
   </div>
+  <% end %>
 </div>
 <hr>
 <% end  %>
