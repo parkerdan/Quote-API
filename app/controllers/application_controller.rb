@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path, alert: "Please sign in" unless user_signed_in?
   end
 
+  def user_admin?
+    current_user.admin?
+  end
+
 end

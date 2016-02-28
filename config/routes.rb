@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :users
+  resources :apikeys, only: [:new,:destroy,:index,:create]
 
    root 'quotes#index'
    resources :sessions, only: [:new, :create] do

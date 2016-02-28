@@ -11,7 +11,8 @@
         <li><p class="navbar-text">Hello <%= current_user.display_name %>!</p></li>
         <% if current_user.admin  %>
         <li><%= link_to "Create New User", new_user_path %></li>
-        <li><%= link_to "Create New API Key", new_quote_path %></li>
+        <li><%= link_to "Create API Key", new_apikey_path %></li>
+        <li><%= link_to "Review API Keys", apikeys_path %></li>
         <li><%= link_to "Edit User Access", users_path %></li>
         <% end  %>
         <li><%= link_to "Edit Your Creds", edit_user_path(current_user) %></li>
