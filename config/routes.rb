@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  resources :users, only: [:new, :create] do
+      get :edit, on: :collection
+      patch :update, on: :collection
+
+  end
    root 'quotes#index'
    resources :sessions, only: [:new, :create] do
        delete :destroy, on: :collection

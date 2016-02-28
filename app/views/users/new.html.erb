@@ -1,0 +1,10 @@
+<h1>Sign Up New User To Access API</h1>
+<hr>
+  <%= simple_form_for @user, url: users_path do |f| %>
+      <%= f.input :user_name %>
+      <%= f.input :display_name, hint: "The display name for this website so I can say hello when you log in :)" %>
+      <%= f.input :admin %>
+      <%= f.input :password, label_html: { id: 'catpants' }, input_html: {id:'password'} %>
+      <%= f.input :password_confirmation %>
+      <%= f.submit  class: "btn btn-primary" %>
+  <% end %>
