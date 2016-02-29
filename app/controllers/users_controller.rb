@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if current_user.admin
       find_user
       if @user.update user_params
-        redirect_to root_path, notice: "Profile updated"
+        redirect_to quotes_path, notice: "Profile updated"
       else
         flash[:alert] = "See errors below"
         render :edit
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       @user = current_user
       if @user.authenticate(params[:user][:current_password])
         if @user.update user_params
-          redirect_to root_path, notice: "Profile updated"
+          redirect_to quotes_path, notice: "Profile updated"
         else
           flash[:alert] = "See errors below"
           render :edit

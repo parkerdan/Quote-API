@@ -1,7 +1,9 @@
 <h1>New API Key</h1>
+<h4>** Key not valid until saved **</h4>
+<p>There will be a notice when it's saved</p>
 <hr>
 <%= simple_form_for @apikey do |f| %>
-  <%= f.input :for %>
+  <%= f.input :for, label: "Please tell who or what this is for and how you found this" %>
   <div class="form-group">
     <h3>API Key</h3>
     <h4><%= @key %></h4>

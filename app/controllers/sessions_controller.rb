@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged In 🤗"
     else
       flash[:alert] = "**** You shall not pass!!!! ****"
-      render :new
+      redirect_to root_path
     end
   end
 

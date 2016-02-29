@@ -3,11 +3,14 @@
   <div class="col-sm-2">
     <h2>For</h2>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <h2>Key</h2>
   </div>
-  <div class="col-sm-3">
-    <h2>Number of Requests</h2>
+  <div class="col-sm-2">
+    <h2>Get Requests</h2>
+  </div>
+  <div class="col-sm-2">
+    <h2>Post Requests</h2>
   </div>
   <div class="col-sm-2">
     <h2>Action</h2>
@@ -19,11 +22,14 @@
   <div class="col-sm-2">
     <h4><%= q.for %></h4>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <p><%= q.key %></p>
   </div>
-  <div class="col-sm-3">
-    <h4><%= q.counter %></h4>
+  <div class="col-sm-2">
+    <h4><%= q.get_counter %></h4>
+  </div>
+  <div class="col-sm-2">
+    <h4><%= q.post_counter %></h4>
   </div>
   <div class="col-sm-2">
     <%= link_to "Delete", apikey_path(q), method: :delete, data: {confirm: "This is final, it WILL be erased..."}, class: "btn btn-danger btn-xs" %>

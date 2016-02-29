@@ -23,4 +23,11 @@ class ApplicationController < ActionController::Base
     current_user.admin?
   end
 
+  # def check_api_key!
+  #   render :json => {
+  #     :status => 498,
+  #     :message => "Invalid Token",
+  #   }
+  # end
+
 end

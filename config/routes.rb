@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   resources :users
   resources :apikeys, only: [:new,:destroy,:index,:create]
 
-   root 'quotes#index'
+   root 'apikeys#new'
    resources :sessions, only: [:new, :create] do
        delete :destroy, on: :collection
        end
   resources :quotes
-  post "/api/quote/pirate" => "api#convert_to_pirate_speak", as: :convert_to_pirate_speak
-
+  get "/api/quote" => "api#get_quote", as: :get_quote
+  post "api/quote" => "api#convert_user_quote", as: :convert_user_quote
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

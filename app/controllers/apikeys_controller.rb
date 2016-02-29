@@ -1,5 +1,5 @@
 class ApikeysController < ApplicationController
-  before_action :user_admin?
+  before_action :user_admin?, except: [:new,:create]
 
   def new
     @apikey = Apikey.new
@@ -14,10 +14,10 @@ class ApikeysController < ApplicationController
     apikey_params
     @apikey = Apikey.new(for: @for,key: @key)
     if @apikey.save
-      flash[:notice] = "Saved"
+      flash[:notice] = "Saved..."
       redirect_to apikeys_path
     else
-      flash[:alert] = "Duplicate name for, or duplicate key"
+      flash[:alert] = "Fill out entire form please"
       redirect_to new_apikey_path
     end
   end
