@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :quotes
   get "/api/quote" => "api#get_quote", as: :get_quote
   post "api/quote" => "api#convert_user_quote", as: :convert_user_quote
+  post "api/quote/author" => "api#search_by_author", as: :search_by_author
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

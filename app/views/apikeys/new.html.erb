@@ -3,7 +3,7 @@
 <p>There will be a notice when it's saved</p>
 <hr>
 <%= simple_form_for @apikey do |f| %>
-  <%= f.input :for, label: "Please tell who or what this is for and how you found this" %>
+  <%= f.input :for, label: "Please tell who or what this is for and how you found this.  Thanks!" %>
   <div class="form-group">
     <h3>API Key</h3>
     <h4><%= @key %></h4>
@@ -24,15 +24,51 @@
   Include headers on all requests
 </p>
 <p>
-  headers:
-  { 'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Quote-API-Key': 'YOUR_API_KEY'
-  },
+  headers: <br>
+  { 'Accept': 'application/json', <br>
+    'Content-Type': 'application/json', <br>
+    'Quote-API-Key': 'YOUR_API_KEY' <br>
+  },<br>
 </p>
-<h4>For POST requests</h4>
+<hr>
+<h4>A GET request will return a response with an array of 5 quotes each having:</h4>
+<h5>GET  https://quote-convert-api.herokuapp.com/api/quote </h5>
 <p>
-  body:
-  { 'quote':'I would like to convert this to Yoda and Pirate speak'
-    'author':'AUTHOR' }
+  { author: "Author", <br>
+    pirate_speak: "Pirate speak version", <br>
+    quote: "A random quote", <br>
+    yoda_speak: "Yoda speak version", <br>
+  } <br>
+
 </p>
+<hr>
+<h4>When using to convert user quote submit data with POST request as:</h4>
+<h5>POST  https://quote-convert-api.herokuapp.com/api/quote </h5>
+<h4>with</h4>
+<p>
+  body: <br>
+  { 'author':'AUTHOR', <br>
+    'quote':'I would like to convert this to Yoda and Pirate speak', <br>
+  } <br>
+</p>
+<hr>
+<h4>To search by Author submit POST request as:</h4>
+<h5>POST  https://quote-convert-api.herokuapp.com/api/quote/author </h5>
+<h4>with</h4>
+<p>
+  body: <br>
+  { 'author':'AUTHOR', <br>
+  } <br>
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

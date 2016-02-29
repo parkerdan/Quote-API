@@ -20,7 +20,7 @@
 <% @quotes.each do |q| %>
 <div class="row">
   <div class="col-sm-2">
-    <h4><%= q.author %></h4>
+    <h4><%= q.author.titleize %></h4>
   </div>
   <div class="col-sm-2">
     <p><%= q.body %></p>
