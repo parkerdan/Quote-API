@@ -1,6 +1,6 @@
 ## API usage
 
-## All requests require an API key, submit JSON, returns JSON
+## All requests require an API key, submit JSON, it returns JSON
 
 Request headers
 ```
@@ -24,6 +24,6 @@ A GET request will return an object as:
 When using to convert user quote submit data with POST request as:
 ```
 body:
-{ 'quote':'I would like to convert this to Yoda and Pirate'
+{ 'quote':'I would like to convert this to Yoda and Pirate speak'
   'author':'AUTHOR' }
 ```

@@ -6,7 +6,8 @@ class ApiController < ApplicationController
   def convert_user_quote
     @apikey = Apikey.find_by key: request.headers["Quote-API-Key"]
     @apikey.increment!(:post_counter)
-    Yodaspeak.credentials("RRb2JvmFDDmshk5CcwfifvzeIBZUp1v3utLjsnnjyQL5G6C5Fz")
+    @key = Rails.application.config.mashape_yoda_api_key
+    Yodaspeak.credentials(@key)
 
     @user_quote = ActiveSupport::JSON.decode(request.raw_post)["quote"]
     @author = ActiveSupport::JSON.decode(request.raw_post)["author"]
@@ -42,11 +43,17 @@ class ApiController < ApplicationController
   private
 
   def check_api_key
-    if !Apikey.find_by key: request.headers["Quote-API-Key"]
-      render :json => {
-        :status => 498,
-        :message => "Invalid Token",
+    respond_to do |format|
+      format.json {
+        if !Apikey.find_by key: request.headers["Quote-API-Key"]
+          render :json => {
+            :status => 498,
+            :message => "Invalid Token",
+          }
+        end
+
       }
+      format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: 404  }
     end
   end
 

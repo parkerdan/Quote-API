@@ -11,3 +11,28 @@
   </div>
   <%= f.button :submit,"Save API Key",class: "btn btn-success" %>
 <% end %>
+<hr>
+<h3>Usage</h3>
+<p>
+  All requests require an API key, submit JSON, it returns JSON
+</p>
+<p>
+  All requests go to https://quote-convert-api.herokuapp.com/api/quote
+</p>
+<h4>Headers</h4>
+<p>
+  Include headers on all requests
+</p>
+<p>
+  headers:
+  { 'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Quote-API-Key': 'YOUR_API_KEY'
+  },
+</p>
+<h4>For POST requests</h4>
+<p>
+  body:
+  { 'quote':'I would like to convert this to Yoda and Pirate speak'
+    'author':'AUTHOR' }
+</p>

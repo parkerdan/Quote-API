@@ -1,7 +1,8 @@
 require 'yodaspeak'
 desc "Convert Yoda Speak"
 task :get_yoda_speak => :environment do
-    Yodaspeak.credentials("RRb2JvmFDDmshk5CcwfifvzeIBZUp1v3utLjsnnjyQL5G6C5Fz")
+    @key = Rails.application.config.mashape_yoda_api_key
+    Yodaspeak.credentials(@key)
 
     @needs_convert = Quote.where(yoda_speak: "")
     @needs_convert.each do |q|
