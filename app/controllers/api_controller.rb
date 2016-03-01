@@ -14,13 +14,12 @@ class ApiController < ApplicationController
     @yoda_speak = Yodaspeak.speak(@user_quote).body
     @pirate_speak = TalkLikeAPirate.translate(@user_quote)
 
+    @reply= @reply.to_a << {:author => @author.titleize,:quote => @user_quote,:yoda_speak => @yoda_speak,:pirate_speak =>@pirate_speak}
+
 
     render :json => {
       :status => 200,
-      :author => @author.titleize,
-      :quote => @user_quote,
-      :yoda_speak => @yoda_speak,
-      :pirate_speak => @pirate_speak,
+      :response => @reply,
     }
   end
 
