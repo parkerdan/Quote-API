@@ -14,4 +14,3 @@
 
 /db/seeds.rb
 *.yml
-/config/application.rb
