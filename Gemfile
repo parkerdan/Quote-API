@@ -4,7 +4,7 @@ gem 'interactive_editor', '~> 0.0.10'
 gem 'hirb', '~> 0.7.3'
 gem 'awesome_print', '~> 1.6', '>= 1.6.1'
 gem "bootstrap-sass"
-gem 'catpants', '~> 2.1.2'
+gem 'catpants', '2.1.2'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'simple_form'
 gem 'talk_like_a_pirate', '~> 0.1.0'
