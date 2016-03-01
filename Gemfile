@@ -11,6 +11,9 @@ gem 'talk_like_a_pirate', '~> 0.1.0'
 gem 'yodaspeak'
 gem 'kaminari'
 gem "font-awesome-rails"
+gem 'sprockets', '~> 3.5', '>= 3.5.2'
+gem 'sprockets-rails', '~> 3.0', '>= 3.0.3'
+gem 'execjs', '~> 2.6'
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
