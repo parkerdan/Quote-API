@@ -5,7 +5,7 @@ before_action :authenticate_user!
   end
 
   def index
-    @quotes = Quote.all.order(created_at: :desc)
+    @quotes = Quote.all.order(created_at: :desc).page params[:page]
   end
 
   def show
@@ -19,9 +19,10 @@ before_action :authenticate_user!
   def create
     @quote = Quote.new quote_params
     @quote.pirate_speak = TalkLikeAPirate.translate(@quote.body)
+    @quote.user = current_user
     if @quote.save
       flash[:notice] = "Saved"
-      redirect_to quote_path(@quote)
+      redirect_to new_quote_path
     else
       flash[:alert] = "See errors below"
       render :new

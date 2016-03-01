@@ -1,9 +1,8 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <i>Quotes API</i>
-    </div>
-
+    <ul class="nav navbar-nav navbar-left clear-top">
+      <li><%= image_tag("mouth.png", size: "50x40", alt: "Logo") %></li>
+    </ul>
     <% if user_signed_in? %>
       <ul class="nav navbar-nav">
         <li><p class="navbar-text hello">Hello <%= current_user.display_name %>!</p></li>

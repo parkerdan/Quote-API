@@ -4,6 +4,7 @@ class ApikeysController < ApplicationController
   def new
     @apikey = Apikey.new
     @key = generate_token
+    @total_requests = Apikey.sum(:post_counter) + Apikey.sum(:get_counter) + Apikey.sum(:search_counter)
   end
 
   def index
@@ -15,10 +16,10 @@ class ApikeysController < ApplicationController
     @apikey = Apikey.new(for: @for,key: @key)
     if @apikey.save
       flash[:notice] = "Saved..."
-      redirect_to apikeys_path
-    else
-      flash[:alert] = "Fill out entire form please"
       redirect_to new_apikey_path
+    else
+      flash[:alert] = "See Errors Below"
+      render :new
     end
   end
 

@@ -1,9 +1,31 @@
-<h1>New API Key</h1>
-<h4>** Key not valid until saved **</h4>
+<div class="page-header">
+  <div class="row">
+    <h1 class='col-sm-9'>Quote Convert API <small>Pirate and Yoda speak</small></h1>
+    <div class="col-sm-3">
+      <%= image_tag("mouth.png", size: "80x60", alt: "Mouth") %>
+    </div>
+  </div>
+</div>
+<h5>Use this API to get some random quotes, with fun translations.&nbsp&nbsp  Regular, Yoda, and Pirate speak</h5>
+<h4>Total requests fulfilled:&nbsp <span class="blue"><%= @total_requests %></span>
+</h4>
+<p>Built to support these apps:</p>
+<div class="row">
+  <div class="list-group col-sm-4">
+    <a class="list-group-item" href="https://play.google.com/store/apps/details?id=com.yodafortune"><i class="fa fa-google fa-fw blue"></i>&nbsp&nbsp Quote Convert Android </a>
+    <a class="list-group-item" href="https://itunes.apple.com/us/app/quote-convert/id1081217783?ls=1&mt=8"><i class="fa fa-apple fa-fw red"></i>&nbsp&nbsp Quote Convert iOS</a>
+  </div>
+  <div class="col-sm-8">
+
+  </div>
+
+</div>
+<h2>New API Key</h2>
+<h4 class="red">** Key not valid until saved **</h4>
 <p>There will be a notice when it's saved</p>
 <hr>
 <%= simple_form_for @apikey do |f| %>
-  <%= f.input :for, label: "Please tell who or what this is for and how you found this.  Thanks!" %>
+  <%= f.input :for, label: "Please tell who or what this is for and how you found this.  I will add a link to your usage.  Thanks!" %>
   <div class="form-group">
     <h3>API Key</h3>
     <h4><%= @key %></h4>
@@ -13,53 +35,47 @@
 <% end %>
 <hr>
 <h3>Usage</h3>
-<p>
-  All requests require an API key, submit JSON, it returns JSON
-</p>
-<p>
-  All requests go to https://quote-convert-api.herokuapp.com/api/quote
-</p>
+<p>&nbsp&nbsp All requests require an API key, submit JSON, it returns JSON</p>
 <h4>Headers</h4>
-<p>
-  Include headers on all requests
+<p>&nbsp&nbsp Include headers on all requests</p>
+<div class="well">
+  <p>
+    headers: <br>
+    { 'Accept': 'application/json', <br>
+    &nbsp 'Content-Type': 'application/json', <br>
+    &nbsp 'Quote-API-Key': 'YOUR_API_KEY' }<br>
 </p>
-<p>
-  headers: <br>
-  { 'Accept': 'application/json', <br>
-    'Content-Type': 'application/json', <br>
-    'Quote-API-Key': 'YOUR_API_KEY' <br>
-  },<br>
-</p>
-<hr>
+</div>
 <h4>A GET request will return a response with an array of 5 quotes each having:</h4>
-<h5>GET  https://quote-convert-api.herokuapp.com/api/quote </h5>
-<p>
-  { author: "Author", <br>
-    pirate_speak: "Pirate speak version", <br>
-    quote: "A random quote", <br>
-    yoda_speak: "Yoda speak version", <br>
-  } <br>
+<h5>&nbsp&nbsp GET  <span class="blue">https://quote-convert-api.herokuapp.com/api/quote </span></h5>
+<div class="well">
+  <p>
+    { author: "Author", <br>
+    &nbsp pirate_speak: "Pirate speak version", <br>
+    &nbsp quote: "A random quote", <br>
+    &nbsp yoda_speak: "Yoda speak version" } <br>
 
 </p>
-<hr>
+</div>
 <h4>When using to convert user quote submit data with POST request as:</h4>
-<h5>POST  https://quote-convert-api.herokuapp.com/api/quote </h5>
+<h5>&nbsp&nbsp POST  <span class="blue">https://quote-convert-api.herokuapp.com/api/quote</span></h5>
 <h4>with</h4>
-<p>
-  body: <br>
-  { 'author':'AUTHOR', <br>
-    'quote':'I would like to convert this to Yoda and Pirate speak', <br>
-  } <br>
+<div class="well">
+  <p>
+    body: <br>
+    { 'author':'AUTHOR', <br>
+    &nbsp 'quote':'I would like to convert this to Yoda and Pirate speak' } <br>
 </p>
-<hr>
+</div>
 <h4>To search by Author submit POST request as:</h4>
-<h5>POST  https://quote-convert-api.herokuapp.com/api/quote/author </h5>
+<h5>&nbsp&nbsp POST  <span class="blue">https://quote-convert-api.herokuapp.com/api/quote/author </span></h5>
 <h4>with</h4>
-<p>
-  body: <br>
-  { 'author':'AUTHOR', <br>
-  } <br>
+<div class="well">
+  <p>
+    body: <br>
+    { 'author':'AUTHOR' } <br>
 </p>
+</div>
 <br>
 <br>
 <br>
