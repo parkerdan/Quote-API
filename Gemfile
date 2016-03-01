@@ -11,6 +11,7 @@ gem 'talk_like_a_pirate', '~> 0.1.0'
 gem 'yodaspeak'
 gem 'kaminari'
 gem "font-awesome-rails"
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -41,7 +42,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+ruby "2.2.2"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
