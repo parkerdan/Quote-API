@@ -2,10 +2,10 @@ desc "Scrape Quotes"
 task :scrape_quotes => :environment do
   require 'open-uri'
 
-
+  @topic = Rails.application.config.topic
   (1..100).each do |n|
 
-    url = "https://www.goodreads.com/quotes/tag/philosophy?page=#{n}"
+    url = "https://www.goodreads.com/quotes/tag/#{@topic}?page=#{n}"
     doc = Nokogiri::HTML(open(url))
 
     doc.css("div.quoteDetails").css("div.quoteText").text.split("\n")[1].strip!.gsub!('“',"").gsub!('”',"")
