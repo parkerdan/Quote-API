@@ -196,6 +196,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks (~> 2.1)
   kaminari
+  nokogiri (~> 1.6, >= 1.6.7.2)
   pg
   rails (= 4.2.3)
   rails_12factor
