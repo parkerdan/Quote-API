@@ -1,8 +1,11 @@
-<h1>Sign In</h1>
-<%= form_tag sessions_path do %>
+<div class="container col-sm-4">
+
+  <h2>Creds</h2>
+  <%= form_tag sessions_path do %>
   <div class="form-group">
-    <%= label_tag :user_name, "This isn't available to you :( " %>
-    <%= text_field_tag :user_name, "Unless you have been granted special access :) ", class: "form-control" %>
+    <%= label_tag :user_name, "This isn't available to you unless you have been granted special access.  Please click back button or play with the password calculator...which is available as a Ruby Gem at the link below"%>
+    <a href="https://rubygems.org/gems/catpants">Cat Pants Gem, follow link to homepage from Ruby Gems for proper usage!!!  Always read documentation :)</a>
+    <%= text_field_tag :user_name, "", class: "form-control" %>
   </div>
   <div class="form-group">
     <%= label_tag :password, "Password",id:"catpants" %>
@@ -11,4 +14,5 @@
   <div class="form-group">
     <%= submit_tag "Sign In", class: "btn btn-primary" %>
   </div>
-<% end %>
+  <% end %>
+</div>
