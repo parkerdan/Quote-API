@@ -1,8 +1,8 @@
 <h1>Sign In</h1>
 <%= form_tag sessions_path do %>
   <div class="form-group">
-    <%= label_tag :user_name %>
-    <%= text_field_tag :user_name, "", class: "form-control" %>
+    <%= label_tag :user_name, "This isn't available to you :( " %>
+    <%= text_field_tag :user_name, "Unless you have been granted special access :) ", class: "form-control" %>
   </div>
   <div class="form-group">
     <%= label_tag :password, "Password",id:"catpants" %>
