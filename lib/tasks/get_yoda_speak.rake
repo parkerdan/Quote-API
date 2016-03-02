@@ -12,6 +12,8 @@ task :get_yoda_speak => :environment do
     @needs_convert.each do |q|
       @fix_unicode = q.body.encode(Encoding.find('ASCII'), encoding_options)
       q.yoda_speak = Yodaspeak.speak(@fix_unicode).body
+      q.pirate_speak = TalkLikeAPirate.translate(@fix_unicode)
+
       if q.yoda_speak.length < 110
         q.save
       end
