@@ -3,18 +3,21 @@ task :scrape_quotes => :environment do
   require 'open-uri'
 
 
-  (1..213).each do |n|
+  (1..100).each do |n|
 
-    url = "http://www.values.com/inspirational-quotes?page=#{n}"
+    url = "https://www.goodreads.com/quotes/tag/funny?page=1"
     doc = Nokogiri::HTML(open(url))
 
-    doc.css("div.quote").each do |q|
+    doc.css("div.quoteDetails").css("div.quoteText").text.split("\n")[1].strip!.gsub!('“',"").gsub!('”',"")
 
-      @quote = q.css("h6 a").text
-      @author = q.css("p").text.partition("[")[0]
+    doc.css("div.quoteDetails").each do |q|
+
+      @quote = q.css("div.quoteText").text.split("\n")[1].strip!.gsub!('“',"").gsub!('”',"")
+      @author = q.css("a.authorOrTitle").first.text
+
 
       if @quote.length < 100
-        Quote.create(body: @quote, author: @author)
+        Quote.create(body: @quote, author: @author, pirate_speak: TalkLikeAPirate.translate(@quote))
         puts "saved quote"
       end
     end
