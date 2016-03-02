@@ -11,7 +11,11 @@ class ApiController < ApplicationController
 
     @user_quote = ActiveSupport::JSON.decode(request.raw_post)["quote"]
     @author = ActiveSupport::JSON.decode(request.raw_post)["author"]
-    @yoda_speak = Yodaspeak.speak(@user_quote).body
+    if Yodaspeak.speak(@user_quote).body.length < 110
+      @yoda_speak = Yodaspeak.speak(@user_quote).body
+    else
+      @yoda_speak = "Down my translating service is, try later you should"
+    end
     @pirate_speak = TalkLikeAPirate.translate(@user_quote)
 
     @reply= @reply.to_a << {:author => @author.titleize,:quote => @user_quote,:yoda_speak => @yoda_speak,:pirate_speak =>@pirate_speak}
