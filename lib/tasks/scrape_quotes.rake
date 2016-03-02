@@ -5,7 +5,7 @@ task :scrape_quotes => :environment do
 
   (1..100).each do |n|
 
-    url = "https://www.goodreads.com/quotes/tag/funny?page=1"
+    url = "https://www.goodreads.com/quotes/tag/funny?page=#{n}"
     doc = Nokogiri::HTML(open(url))
 
     doc.css("div.quoteDetails").css("div.quoteText").text.split("\n")[1].strip!.gsub!('“',"").gsub!('”',"")
