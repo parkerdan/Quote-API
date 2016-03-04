@@ -33,7 +33,7 @@ class ApiController < ApplicationController
     # check_header
     # @var = request.raw_post
     # @var = TalkLikeAPirate.translate(ActiveSupport::JSON.decode(request.raw_post)["quote"])
-     Quote.where("yoda_speak != ''").limit(5).order("RANDOM()").each do |q|
+     Quote.where("yoda_speak != ''").limit(10).order("RANDOM()").each do |q|
       @reply= @reply.to_a << {:author => q.author.titleize,:quote => q.body,:yoda_speak => q.yoda_speak,:pirate_speak =>q.pirate_speak}
     end
     render :json => {
@@ -47,7 +47,7 @@ class ApiController < ApplicationController
     @apikey.increment!(:search_counter)
     @author = ActiveSupport::JSON.decode(request.raw_post)["author"]
     #
-    @quote = Quote.where("author = ? and yoda_speak != ''",@author ).limit(5).order("RANDOM()")
+    @quote = Quote.where("author = ? and yoda_speak != ''",@author ).limit(10).order("RANDOM()")
     #
     if @quote.length > 0
       @quote.each do |q|

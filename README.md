@@ -11,7 +11,7 @@ headers:
 },
 ```
 
-A GET request will return a response with an array of 5 quotes each having:
+A GET request will return a response with an array of 10 quotes each having:
 ```
 GET  https://quote-convert-api.herokuapp.com/api/quote
 ```
