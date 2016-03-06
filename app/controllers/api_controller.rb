@@ -12,8 +12,9 @@ class ApiController < ApplicationController
 
     @user_quote = ActiveSupport::JSON.decode(request.raw_post)["quote"]
     @author = ActiveSupport::JSON.decode(request.raw_post)["author"]
-    if Yodaspeak.speak(@user_quote).body.length < 110
-      @yoda_speak = Yodaspeak.speak(@user_quote).body
+    @yoda_object = Yodaspeak.speak(@user_quote)
+    if @yoda_object.body.length < 110 && @yoda_object.code == 200
+      @yoda_speak = @yoda_object.body
     else
       @yoda_speak = "Down my translating service is, try later you should"
     end
@@ -23,9 +24,9 @@ class ApiController < ApplicationController
 
 
     render :json => {
-      :status => 200,
       :response => @reply,
-    }
+    },:status => 200
+
   end
 
   def get_quote
@@ -38,9 +39,9 @@ class ApiController < ApplicationController
       @reply= @reply.to_a << {:author => q.author.titleize,:quote => q.body,:yoda_speak => q.yoda_speak,:pirate_speak =>q.pirate_speak}
     end
     render :json => {
-      :status => 200,
       :response => @reply,
-    }
+    },:status => 200
+
   end
 
   def search_by_author
@@ -55,14 +56,13 @@ class ApiController < ApplicationController
         @reply= @reply.to_a << {:author => q.author.titleize,:quote => q.body,:yoda_speak => q.yoda_speak,:pirate_speak =>q.pirate_speak}
       end
       render :json => {
-        :status => 200,
         :response => @reply,
-      }
+      },:status => 200
     else
       render :json => {
-        :status => 204,
         :response => 'No entries for this author',
-      }
+      },:status => 204
+
     end
 
   end
@@ -75,9 +75,8 @@ class ApiController < ApplicationController
       format.json {
         if !Apikey.find_by key: request.headers["Quote-API-Key"]
           render :json => {
-            :status => 498,
             :message => "Invalid Token",
-          }
+          }, :status => 498
         end
 
       }
